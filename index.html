@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PantryEarth.com | Premium Sun-Dried & Organic Foods</title>
+  <meta name="description" content="Shop high-end organic dried fruits, roasted nuts, authentic spices, and dehydrated vegetables. Sustainably sourced, solar-dehydrated, and plastic-free packaging.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: '#1E3F20',
+              light: '#2d5a30',
+              dark: '#122613'
+            },
+            secondary: '#D97706',
+            cream: '#FAF9F6'
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-cream text-gray-800 flex flex-col min-h-screen">
+
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-40 glass w-full shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2 group">
+          <span class="text-2xl">🌱</span>
+          <span class="font-extrabold text-2xl tracking-tight text-primary group-hover:text-primary-light transition-colors">
+            Pantry<span class="text-secondary">Earth</span><span class="text-xs font-semibold align-super">.com</span>
+          </span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-8 font-medium text-primary">
+          <a href="index.html" class="hover:text-secondary border-b-2 border-primary pb-1 transition-all">Home</a>
+          <a href="shop.html" class="hover:text-secondary border-b-2 border-transparent hover:border-secondary pb-1 transition-all">Shop</a>
+          <a href="about.html" class="hover:text-secondary border-b-2 border-transparent hover:border-secondary pb-1 transition-all">About Us</a>
+          <a href="contact.html" class="hover:text-secondary border-b-2 border-transparent hover:border-secondary pb-1 transition-all">Contact</a>
+        </nav>
+
+        <!-- Right Utilities -->
+        <div class="flex items-center gap-4">
+          <!-- Quick Search Icon (Links to Shop) -->
+          <a href="shop.html" class="p-2 text-primary hover:text-secondary transition" title="Search Products">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </a>
+
+          <!-- Cart Icon -->
+          <a href="cart.html" class="relative p-2 text-primary hover:text-secondary transition" title="Shopping Cart" id="cart-icon-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+            <span class="cart-count absolute -top-1 -right-1 bg-secondary text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-content justify-center hidden animate-bounce">
+              0
+            </span>
+          </a>
+
+          <!-- Mobile Menu Button -->
+          <button id="mobile-menu-btn" class="md:hidden p-2 text-primary focus:outline-none" aria-label="Toggle Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden glass border-t border-gray-200 animate-fade-in">
+      <div class="px-4 pt-2 pb-6 space-y-3 font-medium">
+        <a href="index.html" class="block py-2 text-primary border-b border-gray-100 font-bold">Home</a>
+        <a href="shop.html" class="block py-2 text-primary border-b border-gray-100 hover:text-secondary">Shop</a>
+        <a href="about.html" class="block py-2 text-primary border-b border-gray-100 hover:text-secondary">About Us</a>
+        <a href="contact.html" class="block py-2 text-primary hover:text-secondary">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-green-50 to-amber-50/30 overflow-hidden py-12 md:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          <!-- Text Columns -->
+          <div class="space-y-6 md:space-y-8 text-center lg:text-left z-10 animate-fade-in-up">
+            <span class="inline-flex items-center gap-1.5 py-1.5 px-3.5 rounded-full text-xs font-semibold bg-emerald-100 text-primary uppercase tracking-wider">
+              🍃 100% Earth Friendly & Organic
+            </span>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-primary leading-tight">
+              Premium Sun-Dried Foods <br>
+              <span class="text-secondary">For a Healthier You.</span>
+            </h1>
+            <p class="text-base sm:text-lg text-gray-600 max-w-xl mx-auto lg:mx-0">
+              PantryEarth offers nutrient-dense, sun-dehydrated fruits, roasted organic nuts, pristine spices, and culinary vegetables. Sourced directly from sustainable local farms with fair-trade practices.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+              <a href="shop.html" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-base font-bold rounded-xl text-white bg-primary hover:bg-primary-light transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                Explore the Shop
+              </a>
+              <a href="about.html" class="inline-flex justify-center items-center px-8 py-4 border-2 border-primary text-base font-bold rounded-xl text-primary hover:bg-primary hover:text-white transition-all transform hover:-translate-y-0.5">
+                Our Sourcing Story
+              </a>
+            </div>
+
+            <!-- Trust Badges -->
+            <div class="pt-6 grid grid-cols-3 gap-4 border-t border-gray-200 max-w-md mx-auto lg:mx-0">
+              <div class="text-center lg:text-left">
+                <span class="block text-2xl font-bold text-primary">100%</span>
+                <span class="text-xs text-gray-500 font-medium">Solar Dehydrated</span>
+              </div>
+              <div class="text-center lg:text-left">
+                <span class="block text-2xl font-bold text-primary">Direct</span>
+                <span class="text-xs text-gray-500 font-medium">Fair Trade Farms</span>
+              </div>
+              <div class="text-center lg:text-left">
+                <span class="block text-2xl font-bold text-primary">Zero</span>
+                <span class="text-xs text-gray-500 font-medium">Additives/Sugar</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image Columns -->
+          <div class="relative flex justify-center items-center lg:justify-end animate-fade-in-up" style="animation-delay: 0.2s;">
+            <!-- Decorative Backing Shapes -->
+            <div class="absolute -top-10 -left-10 w-48 h-48 bg-amber-200/40 rounded-full filter blur-xl animate-float-slow"></div>
+            <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-emerald-200/30 rounded-full filter blur-xl animate-float"></div>
+            
+            <!-- Main Hero Image Frame -->
+            <div class="relative border-8 border-white rounded-3xl shadow-2xl overflow-hidden max-w-md md:max-w-lg transition-transform duration-500 hover:scale-[1.02]">
+              <img src="assets/images/hero-bg.png" alt="Premium Dried Organic Foods Display" class="w-full h-auto object-cover aspect-[4/3]">
+              <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/60 to-transparent p-6 text-white">
+                <p class="font-extrabold text-lg sm:text-xl">Ceylon Cinnamon & Dried Fruit Harvest</p>
+                <p class="text-xs text-gray-200">100% Sun-Dried under hygienic solar glass domes.</p>
+              </div>
+            </div>
+
+            <!-- Overlay Badge -->
+            <div class="absolute -bottom-4 -left-4 sm:left-12 glass p-4 rounded-2xl shadow-xl flex items-center gap-3 border border-white/60 animate-float">
+              <span class="text-3xl">🌟</span>
+              <div>
+                <p class="text-xs font-bold uppercase tracking-wider text-secondary">Highly Rated</p>
+                <p class="text-sm font-extrabold text-primary">4.9/5 Average Stars</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="py-16 md:py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-xl mx-auto mb-16">
+          <h2 class="text-3xl md:text-4xl font-extrabold text-primary mb-4">Discover Sourcing Categories</h2>
+          <div class="w-20 h-1 bg-secondary mx-auto mb-4"></div>
+          <p class="text-gray-500">Each piece is handselected, washed in spring water, and solar dried to lock in maximum nutrition and rich natural flavor.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Category 1: Nuts -->
+          <a href="shop.html?category=nuts" class="group relative block h-80 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/35 transition-colors z-10"></div>
+            <img src="assets/images/almonds.png" alt="Nuts Category" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-x-0 bottom-0 p-6 z-20 text-white">
+              <span class="text-xs uppercase tracking-widest text-amber-300 font-bold">Category</span>
+              <h3 class="text-xl font-bold mt-1">Gourmet Nuts & Seeds</h3>
+              <p class="text-xs text-gray-200 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Crispy roasted almonds, creamy cashews, walnuts & more.</p>
+            </div>
+          </a>
+
+          <!-- Category 2: Fruits -->
+          <a href="shop.html?category=fruits" class="group relative block h-80 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/35 transition-colors z-10"></div>
+            <img src="assets/images/mango.png" alt="Dried Fruits Category" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-x-0 bottom-0 p-6 z-20 text-white">
+              <span class="text-xs uppercase tracking-widest text-amber-300 font-bold">Category</span>
+              <h3 class="text-xl font-bold mt-1">Sun-Dried Fruits</h3>
+              <p class="text-xs text-gray-200 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Sugar-free mangoes, Turkish golden apricots, pineapples.</p>
+            </div>
+          </a>
+
+          <!-- Category 3: Spices -->
+          <a href="shop.html?category=spices" class="group relative block h-80 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/35 transition-colors z-10"></div>
+            <img src="assets/images/cinnamon.png" alt="Spices Category" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-x-0 bottom-0 p-6 z-20 text-white">
+              <span class="text-xs uppercase tracking-widest text-amber-300 font-bold">Category</span>
+              <h3 class="text-xl font-bold mt-1">Aromatic Spices</h3>
+              <p class="text-xs text-gray-200 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Authentic Ceylon cinnamon rolls, cardamom, cloves & herb mixes.</p>
+            </div>
+          </a>
+
+          <!-- Category 4: Veggies -->
+          <a href="shop.html?category=veggies" class="group relative block h-80 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/35 transition-colors z-10"></div>
+            <!-- Using our Unsplash mushroom image -->
+            <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&q=80&w=600" alt="Veggies Category" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-x-0 bottom-0 p-6 z-20 text-white">
+              <span class="text-xs uppercase tracking-widest text-amber-300 font-bold">Category</span>
+              <h3 class="text-xl font-bold mt-1">Dehydrated Vegetables</h3>
+              <p class="text-xs text-gray-200 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Premium Shiitake mushrooms, tomatoes, dried vegetables.</p>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Trending Products Section -->
+    <section class="py-16 md:py-24 bg-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row justify-between items-center mb-12">
+          <div class="text-center sm:text-left">
+            <h2 class="text-3xl font-extrabold text-primary">Best Selling Harvest</h2>
+            <p class="text-gray-500 mt-1">Grab our top-rated organic dry foods of the week.</p>
+          </div>
+          <a href="shop.html" class="mt-4 sm:mt-0 inline-flex items-center gap-1.5 text-primary hover:text-secondary font-bold group transition-colors">
+            View All Products
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Product Cards Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" id="trending-grid">
+          <!-- Will render dynamically with JS for accuracy, but fallback/pre-render is provided below -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us / Value Proposition -->
+    <section class="py-16 md:py-24 bg-white border-y border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-xl mx-auto mb-16">
+          <h2 class="text-3xl font-extrabold text-primary mb-4">Why Choose PantryEarth</h2>
+          <div class="w-16 h-1 bg-secondary mx-auto mb-4"></div>
+          <p class="text-gray-500">We do dry foods differently. From eco-farms to your doorstep, we preserve nutrients naturally.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Card 1 -->
+          <div class="p-8 rounded-2xl bg-cream border border-gray-100 space-y-4 hover:shadow-md transition-shadow">
+            <span class="text-4xl block">☀️</span>
+            <h3 class="text-xl font-bold text-primary">Solar Dehydrated</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              We dehydrate our organic produce inside hygienic glass solar domes. This retains 97% of vitamins, mineral profiles, and raw natural colors without open-air dust exposure or chemicals.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="p-8 rounded-2xl bg-cream border border-gray-100 space-y-4 hover:shadow-md transition-shadow">
+            <span class="text-4xl block">🤝</span>
+            <h3 class="text-xl font-bold text-primary">Direct & Fair Trade</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              We cut out middlemen. Sourced directly from local Sri Lankan and Turkish family-owned farms. We pay 25% above market average prices, supporting rural agriculture and local communities.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="p-8 rounded-2xl bg-cream border border-gray-100 space-y-4 hover:shadow-md transition-shadow">
+            <span class="text-4xl block">📦</span>
+            <h3 class="text-xl font-bold text-primary">100% Plastic-Free</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              Our packaging uses recycled kraft paper and biodegradable corn-starch liners. Keep your food fresh and healthy while knowing your purchase left zero non-recyclable plastic footprint on Earth.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Call To Action Newsletter -->
+    <section class="py-16 md:py-24 bg-primary text-white relative overflow-hidden">
+      <div class="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-emerald-800/40 filter blur-2xl"></div>
+      <div class="max-w-4xl mx-auto px-4 text-center relative z-10 space-y-6">
+        <span class="text-secondary text-sm font-extrabold uppercase tracking-widest">🌿 Join Our Earth Movement</span>
+        <h2 class="text-3xl md:text-5xl font-extrabold leading-tight">Get 15% Off Your First Purchase</h2>
+        <p class="text-gray-300 max-w-lg mx-auto text-sm sm:text-base">
+          Subscribe to our organic news, seasonal recipe sheets, and exclusive direct-trade batch arrivals. No spam, unsubscribe anytime.
+        </p>
+        
+        <form id="newsletter-form" class="max-w-md mx-auto flex flex-col sm:flex-row gap-3 pt-4">
+          <input type="email" placeholder="Enter your email address" required
+            class="flex-grow px-5 py-4 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-secondary glass border-none">
+          <button type="submit" 
+            class="px-8 py-4 rounded-xl bg-secondary hover:bg-amber-600 transition font-bold shadow-md hover:shadow-lg whitespace-nowrap text-white">
+            Subscribe Now
+          </button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-primary-dark text-gray-300 border-t border-emerald-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+        
+        <!-- Brand Info -->
+        <div class="space-y-4">
+          <a href="index.html" class="flex items-center gap-2">
+            <span class="text-xl">🌱</span>
+            <span class="font-extrabold text-xl tracking-tight text-white">
+              Pantry<span class="text-secondary">Earth</span>
+            </span>
+          </a>
+          <p class="text-xs text-gray-400 leading-relaxed">
+            Bringing pristine, sun-dried organic foods to your kitchen pantry. Sourced sustainably with direct fair trade models.
+          </p>
+          <div class="flex items-center gap-3 pt-2 text-sm text-gray-400">
+            <span>📞 +94 11 234 5678</span>
+          </div>
+          <div class="text-xs text-gray-400">
+            ✉️ hello@pantryearth.com
+          </div>
+        </div>
+
+        <!-- Shop links -->
+        <div class="space-y-4">
+          <h4 class="text-white font-bold text-sm uppercase tracking-wider">Quick Shop</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="shop.html?category=nuts" class="hover:text-white transition">Nuts & Seeds</a></li>
+            <li><a href="shop.html?category=fruits" class="hover:text-white transition">Dried Fruits</a></li>
+            <li><a href="shop.html?category=spices" class="hover:text-white transition">Ceylon Spices</a></li>
+            <li><a href="shop.html?category=veggies" class="hover:text-white transition">Mushroom & Veggies</a></li>
+          </ul>
+        </div>
+
+        <!-- Company Links -->
+        <div class="space-y-4">
+          <h4 class="text-white font-bold text-sm uppercase tracking-wider">Information</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="about.html" class="hover:text-white transition">Our Sourcing Story</a></li>
+            <li><a href="contact.html" class="hover:text-white transition">Get In Touch</a></li>
+            <li><a href="about.html#sustainability" class="hover:text-white transition">Eco-Sustainability</a></li>
+            <li><a href="contact.html#faqs" class="hover:text-white transition">FAQs & Answers</a></li>
+          </ul>
+        </div>
+
+        <!-- Certifications/Payment -->
+        <div class="space-y-4">
+          <h4 class="text-white font-bold text-sm uppercase tracking-wider">Certifications</h4>
+          <div class="grid grid-cols-2 gap-2">
+            <span class="bg-primary px-3 py-2 rounded text-center text-xs font-semibold text-gray-300 border border-emerald-900">USDA Organic</span>
+            <span class="bg-primary px-3 py-2 rounded text-center text-xs font-semibold text-gray-300 border border-emerald-900">Fair Trade</span>
+            <span class="bg-primary px-3 py-2 rounded text-center text-xs font-semibold text-gray-300 border border-emerald-900">Solar Dehydrated</span>
+            <span class="bg-primary px-3 py-2 rounded text-center text-xs font-semibold text-gray-300 border border-emerald-900">Eco-Packaged</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copyright Bar -->
+      <div class="mt-16 pt-8 border-t border-emerald-900 text-center text-xs text-gray-500 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p>&copy; 2026 PantryEarth.com. All rights reserved. Built with love using HTML, CSS, and Tailwind.</p>
+        <div class="flex gap-4">
+          <a href="#" class="hover:text-white">Privacy Policy</a>
+          <a href="#" class="hover:text-white">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script>
+    // Home-specific Dynamic Rendering (Trending/Best Sellers)
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('trending-grid');
+      if (grid) {
+        // Take the first 4 products
+        const trendingList = products.slice(0, 4);
+        grid.innerHTML = trendingList.map(product => {
+          // Render stars
+          let stars = '';
+          const fullStars = Math.floor(product.rating);
+          for (let i = 0; i < 5; i++) {
+            if (i < fullStars) {
+              stars += '★';
+            } else {
+              stars += '☆';
+            }
+          }
+          
+          return `
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg border border-gray-100 flex flex-col h-full">
+              <!-- Image container -->
+              <a href="product-detail.html?id=${product.id}" class="relative block overflow-hidden aspect-[4/3] bg-gray-50">
+                <img src="${product.image}" alt="${product.name}" class="product-zoom w-full h-full object-cover">
+                <span class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
+                  ${product.category}
+                </span>
+                <span class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-gray-700 text-xs font-semibold px-2.5 py-1 rounded-full">
+                  ${product.weight}
+                </span>
+              </a>
+
+              <!-- Details Container -->
+              <div class="p-6 flex-grow flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center gap-1 text-amber-500 text-sm mb-1.5">
+                    <span class="font-semibold text-gray-600 text-xs mr-1">${product.rating}</span>
+                    <span>${stars}</span>
+                  </div>
+                  <a href="product-detail.html?id=${product.id}" class="block">
+                    <h3 class="font-bold text-lg text-primary hover:text-secondary line-clamp-1 transition-colors leading-snug">
+                      ${product.name}
+                    </h3>
+                  </a>
+                  <p class="text-xs text-gray-500 mt-2 line-clamp-2 leading-relaxed">
+                    ${product.shortDescription}
+                  </p>
+                </div>
+
+                <div class="mt-6 flex items-center justify-between pt-4 border-t border-gray-50">
+                  <span class="text-xl font-black text-primary">$${product.price.toFixed(2)}</span>
+                  <button onclick="addToCart(${product.id}, 1)" 
+                    class="bg-primary hover:bg-primary-light text-white text-xs font-bold px-4 py-2.5 rounded-xl transition flex items-center gap-1.5 transform hover:scale-[1.02]">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                    </svg>
+                    Add
+                  </button>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+    });
+  </script>
+</body>
+</html>

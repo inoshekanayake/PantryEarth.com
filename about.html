@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PantryEarth.com | Our Sourcing & Sustainability Story</title>
+  <meta name="description" content="Learn how PantryEarth partners directly with family farmers to bring you solar-dehydrated, organic, and plastic-free dry foods.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: '#1E3F20',
+              light: '#2d5a30',
+              dark: '#122613'
+            },
+            secondary: '#D97706',
+            cream: '#FAF9F6'
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-cream text-gray-800 flex flex-col min-h-screen">
+
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-40 glass w-full shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2 group">
+          <span class="text-2xl">🌱</span>
+          <span class="font-extrabold text-2xl tracking-tight text-primary group-hover:text-primary-light transition-colors">
+            Pantry<span class="text-secondary">Earth</span><span class="text-xs font-semibold align-super">.com</span>
+          </span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-8 font-medium text-primary">
+          <a href="index.html" class="hover:text-secondary border-b-2 border-transparent hover:border-secondary pb-1 transition-all">Home</a>
+          <a href="shop.html" class="hover:text-secondary border-b-2 border-transparent hover:border-secondary pb-1 transition-all">Shop</a>
+          <a href="about.html" class="hover:text-secondary border-b-2 border-primary pb-1 transition-all">About Us</a>
+          <a href="contact.html" class="hover:text-secondary border-b-2 border-transparent hover:border-secondary pb-1 transition-all">Contact</a>
+        </nav>
+
+        <!-- Right Utilities -->
+        <div class="flex items-center gap-4">
+          <!-- Cart Icon -->
+          <a href="cart.html" class="relative p-2 text-primary hover:text-secondary transition" title="Shopping Cart" id="cart-icon-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+            <span class="cart-count absolute -top-1 -right-1 bg-secondary text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center hidden animate-bounce">
+              0
+            </span>
+          </a>
+
+          <!-- Mobile Menu Button -->
+          <button id="mobile-menu-btn" class="md:hidden p-2 text-primary focus:outline-none" aria-label="Toggle Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden glass border-t border-gray-200 animate-fade-in">
+      <div class="px-4 pt-2 pb-6 space-y-3 font-medium">
+        <a href="index.html" class="block py-2 text-primary border-b border-gray-100 hover:text-secondary">Home</a>
+        <a href="shop.html" class="block py-2 text-primary border-b border-gray-100 hover:text-secondary">Shop</a>
+        <a href="about.html" class="block py-2 text-primary border-b border-gray-100 font-bold">About Us</a>
+        <a href="contact.html" class="block py-2 text-primary hover:text-secondary">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    
+    <!-- About Header -->
+    <section class="bg-primary text-white py-16 md:py-24 relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-tr from-emerald-800 to-primary opacity-60"></div>
+      <div class="max-w-4xl mx-auto px-4 text-center relative z-10 space-y-4 animate-fade-in-up">
+        <span class="text-secondary text-xs font-bold uppercase tracking-widest bg-white/10 px-3 py-1 rounded-full">Our Core Purpose</span>
+        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight">Earth First, Flavor Preserved.</h1>
+        <p class="text-sm sm:text-base text-gray-300 max-w-lg mx-auto">
+          We bridge the gap between hard-working organic farmers and conscious consumers seeking premium, clean, dried nutrition.
+        </p>
+      </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="py-16 md:py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          <!-- Image frame -->
+          <div class="relative max-w-md mx-auto w-full lg:max-w-none">
+            <img src="assets/images/hero-bg.png" alt="Our story display" class="rounded-3xl shadow-xl w-full h-auto object-cover aspect-[4/3]">
+            <div class="absolute -bottom-6 -right-6 glass p-6 rounded-2xl border border-white/60 shadow-lg hidden sm:block max-w-xs">
+              <p class="text-xs font-bold uppercase text-secondary">Quality Certified</p>
+              <p class="text-sm text-primary font-bold mt-1">Hygienically solar-dried at controlled low heat to safeguard crucial natural vitamins.</p>
+            </div>
+          </div>
+
+          <!-- Text block -->
+          <div class="space-y-6">
+            <h2 class="text-3xl font-extrabold text-primary">How PantryEarth Started</h2>
+            <div class="w-12 h-1 bg-secondary"></div>
+            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+              Founded in 2024, PantryEarth was born out of a simple observations: too much premium organic fruit and spice goes to waste in local tropical farms due to sudden harvest overflows, while local markets get dry foods saturated with industrial chemical preservatives and heavy sugars.
+            </p>
+            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+              We partnered with design engineers and local agricultural colleges to build secure, transparent solar-dehydration glass domes. These domes trap sunlight and circulate filtered hot air, drying our mangoes, cashews, spices, and mushrooms in a clean environment.
+            </p>
+            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+              Today, we purchase directly from over 120 family-owned farms in Sri Lanka and Turkey. By paying fair wages directly, we help rural farmers sustain their lands while bringing raw, pure nutrition to your kitchen table.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Timeline -->
+    <section class="py-16 md:py-24 bg-cream border-y border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-xl mx-auto mb-16">
+          <h2 class="text-3xl font-extrabold text-primary">Our Dehydration Process</h2>
+          <div class="w-16 h-1 bg-secondary mx-auto mt-3"></div>
+          <p class="text-gray-500 mt-4">Every order passes through four carefully designed steps to preserve original nutritional profiles.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+          <!-- Timeline line divider desktop -->
+          <div class="absolute top-1/2 left-4 right-4 h-0.5 bg-emerald-100 -translate-y-1/2 z-0 hidden md:block"></div>
+
+          <!-- Step 1 -->
+          <div class="glass p-6 rounded-2xl border border-gray-150 relative z-10 text-center space-y-3 shadow-sm hover:-translate-y-1 transition-transform">
+            <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold mx-auto text-lg">1</div>
+            <h3 class="font-extrabold text-primary">Ethical Sourcing</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">Harvested fresh at peak sweetness and ripeness from certified pesticide-free organic partner orchards.</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="glass p-6 rounded-2xl border border-gray-150 relative z-10 text-center space-y-3 shadow-sm hover:-translate-y-1 transition-transform">
+            <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold mx-auto text-lg">2</div>
+            <h3 class="font-extrabold text-primary">Ozone Wash</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">Washed inside spring-water tanks injected with natural ozone bubble purifiers, removing wild dirt safely.</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="glass p-6 rounded-2xl border border-gray-150 relative z-10 text-center space-y-3 shadow-sm hover:-translate-y-1 transition-transform">
+            <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold mx-auto text-lg">3</div>
+            <h3 class="font-extrabold text-primary">Solar Dehydrate</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">Dried in closed glass domes using slow heat (45-55°C) to prevent moisture while preserving core natural enzymes.</p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="glass p-6 rounded-2xl border border-gray-150 relative z-10 text-center space-y-3 shadow-sm hover:-translate-y-1 transition-transform">
+            <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold mx-auto text-lg">4</div>
+            <h3 class="font-extrabold text-primary">Eco Packaging</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">Sealed in recycled brown paper pouches lined with plant-based liners. Plastic-free and earth friendly.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Farmers Spotlight & Fair Trade -->
+    <section class="py-16 md:py-24 bg-white" id="sustainability">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          
+          <div class="space-y-6">
+            <span class="text-xs uppercase tracking-widest text-secondary font-extrabold">Sustainable Farming</span>
+            <h2 class="text-3xl font-extrabold text-primary leading-tight">Supporting Communities in Galle & Malatya</h2>
+            <div class="w-12 h-1 bg-primary"></div>
+            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+              PantryEarth takes pride in our 100% fair trade commitment. Under-developed farming communities often face exploitation from large corporate brokers. We change this narrative.
+            </p>
+            
+            <div class="space-y-4">
+              <!-- Point 1 -->
+              <div class="flex items-start gap-3">
+                <span class="text-xl">👩‍🌾</span>
+                <div>
+                  <h4 class="font-bold text-primary">Fair Wages & Work environments</h4>
+                  <p class="text-xs text-gray-500 mt-0.5">We contractually secure wages that are 25% higher than government minimums, and co-fund farm medical insurance.</p>
+                </div>
+              </div>
+              <!-- Point 2 -->
+              <div class="flex items-start gap-3">
+                <span class="text-xl">☀️</span>
+                <div>
+                  <h4 class="font-bold text-primary">Solar Infrastructure Funding</h4>
+                  <p class="text-xs text-gray-500 mt-0.5">We construct solar drying rooms on farmer lands. The farmers own these units, helping them dry other crops for local consumption.</p>
+                </div>
+              </div>
+              <!-- Point 3 -->
+              <div class="flex items-start gap-3">
+                <span class="text-xl">🌳</span>
+                <div>
+                  <h4 class="font-bold text-primary">Afforestation Pledge</h4>
+                  <p class="text-xs text-gray-500 mt-0.5">For every 10kg of dry fruits or cinnamon quills sold, PantryEarth funds planting 1 native wild crop tree on local margins.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Highlight graphic or text frame -->
+          <div class="bg-gradient-to-br from-green-50 to-amber-50 rounded-3xl p-8 sm:p-12 border border-gray-150 space-y-6">
+            <span class="text-4xl block">🍃</span>
+            <blockquote class="text-lg font-medium text-primary italic leading-relaxed">
+              "Working with PantryEarth changed everything for our family spice garden. We used to lose half of our harvest because buyers paid pennies or delayed buying cinnamon quills. Now we have steady monthly payouts and a solar dome that keeps our quills perfectly clean."
+            </blockquote>
+            <div>
+              <p class="font-extrabold text-primary text-base">— Mr. K. Gunasekara</p>
+              <p class="text-xs text-gray-500 uppercase tracking-widest font-bold mt-0.5">Cinnamon & Nut Farmer, Galle District, Sri Lanka</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-primary-dark text-gray-300 border-t border-emerald-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+        
+        <!-- Brand Info -->
+        <div class="space-y-4">
+          <a href="index.html" class="flex items-center gap-2">
+            <span class="text-xl">🌱</span>
+            <span class="font-extrabold text-xl tracking-tight text-white">
+              Pantry<span class="text-secondary">Earth</span>
+            </span>
+          </a>
+          <p class="text-xs text-gray-400 leading-relaxed">
+            Bringing pristine, sun-dried organic foods to your kitchen pantry. Sourced sustainably with direct fair trade models.
+          </p>
+          <div class="flex items-center gap-3 pt-2 text-sm text-gray-400">
+            <span>📞 +94 11 234 5678</span>
+          </div>
+          <div class="text-xs text-gray-400">
+            ✉️ hello@pantryearth.com
+          </div>
+        </div>
+
+        <!-- Shop links -->
+        <div class="space-y-4">
+          <h4 class="text-white font-bold text-sm uppercase tracking-wider">Quick Shop</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="shop.html?category=nuts" class="hover:text-white transition">Nuts & Seeds</a></li>
+            <li><a href="shop.html?category=fruits" class="hover:text-white transition">Dried Fruits</a></li>
+            <li><a href="shop.html?category=spices" class="hover:text-white transition">Ceylon Spices</a></li>
+            <li><a href="shop.html?category=veggies" class="hover:text-white transition">Mushroom & Veggies</a></li>
+          </ul>
+        </div>
+
+        <!-- Company Links -->
+        <div class="space-y-4">
+          <h4 class="text-white font-bold text-sm uppercase tracking-wider">Information</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="about.html" class="hover:text-white transition">Our Sourcing Story</a></li>
+            <li><a href="contact.html" class="hover:text-white transition">Get In Touch</a></li>
+            <li><a href="about.html#sustainability" class="hover:text-white transition">Eco-Sustainability</a></li>
+            <li><a href="contact.html#faqs" class="hover:text-white transition">FAQs & Answers</a></li>
+          </ul>
+        </div>
+
+        <!-- Certifications/Payment -->
+        <div class="space-y-4">
+          <h4 class="text-white font-bold text-sm uppercase tracking-wider">Certifications</h4>
+          <div class="grid grid-cols-2 gap-2">
+            <span class="bg-primary px-3 py-2 rounded text-center text-xs font-semibold text-gray-300 border border-emerald-900">USDA Organic</span>
+            <span class="bg-primary px-3 py-2 rounded text-center text-xs font-semibold text-gray-300 border border-emerald-900">Fair Trade</span>
+            <span class="bg-primary px-3 py-2 rounded text-center text-xs font-semibold text-gray-300 border border-emerald-900">Solar Dehydrated</span>
+            <span class="bg-primary px-3 py-2 rounded text-center text-xs font-semibold text-gray-300 border border-emerald-900">Eco-Packaged</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copyright Bar -->
+      <div class="mt-16 pt-8 border-t border-emerald-900 text-center text-xs text-gray-500 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p>&copy; 2026 PantryEarth.com. All rights reserved. Built with love using HTML, CSS, and Tailwind.</p>
+        <div class="flex gap-4">
+          <a href="#" class="hover:text-white">Privacy Policy</a>
+          <a href="#" class="hover:text-white">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PantryEarth.com | Organic Dry Foods Shop</title>
+  <meta name="description" content="Browse our organic roasted almonds, Ceylon cinnamon, sun-dried mangoes, and dehydrated shiitake. Filters for categories and prices.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: '#1E3F20',
+              light: '#2d5a30',
+              dark: '#122613'
+            },
+            secondary: '#D97706',
+            cream: '#FAF9F6'
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-cream text-gray-800 flex flex-col min-h-screen">
+
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-40 glass w-full shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2 group">
+          <span class="text-2xl">🌱</span>
+          <span class="font-extrabold text-2xl tracking-tight text-primary group-hover:text-primary-light transition-colors">
+            Pantry<span class="text-secondary">Earth</span><span class="text-xs font-semibold align-super">.com</span>
+          </span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-8 font-medium text-primary">
+          <a href="index.html" class="hover:text-secondary border-b-2 border-transparent hover:border-secondary pb-1 transition-all">Home</a>
+          <a href="shop.html" class="hover:text-secondary border-b-2 border-primary pb-1 transition-all">Shop</a>
+          <a href="about.html" class="hover:text-secondary border-b-2 border-transparent hover:border-secondary pb-1 transition-all">About Us</a>
+          <a href="contact.html" class="hover:text-secondary border-b-2 border-transparent hover:border-secondary pb-1 transition-all">Contact</a>
+        </nav>
+
+        <!-- Right Utilities -->
+        <div class="flex items-center gap-4">
+          <!-- Cart Icon -->
+          <a href="cart.html" class="relative p-2 text-primary hover:text-secondary transition" title="Shopping Cart" id="cart-icon-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+            <span class="cart-count absolute -top-1 -right-1 bg-secondary text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center hidden animate-bounce">
+              0
+            </span>
+          </a>
+
+          <!-- Mobile Menu Button -->
+          <button id="mobile-menu-btn" class="md:hidden p-2 text-primary focus:outline-none" aria-label="Toggle Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden glass border-t border-gray-200 animate-fade-in">
+      <div class="px-4 pt-2 pb-6 space-y-3 font-medium">
+        <a href="index.html" class="block py-2 text-primary border-b border-gray-100 hover:text-secondary">Home</a>
+        <a href="shop.html" class="block py-2 text-primary border-b border-gray-100 font-bold">Shop</a>
+        <a href="about.html" class="block py-2 text-primary border-b border-gray-100 hover:text-secondary">About Us</a>
+        <a href="contact.html" class="block py-2 text-primary hover:text-secondary">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    
+    <!-- Shop Header Banner -->
+    <section class="bg-primary text-white py-12 md:py-16 relative overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-emerald-800 via-primary-dark to-primary-dark opacity-80 z-0"></div>
+      <div class="max-w-7xl mx-auto px-4 text-center relative z-10 space-y-3 animate-fade-in-up">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">The Organic Dried Pantry</h1>
+        <p class="text-xs sm:text-sm text-gray-300 max-w-lg mx-auto">
+          Filter through our carefully selected nuts, premium spices, dehydrated veggies, and sun-dried organic fruits. 100% natural, direct-to-home.
+        </p>
+      </div>
+    </section>
+
+    <!-- Product Grid & Filter Catalog -->
+    <section class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row gap-8">
+        
+        <!-- Filters Sidebar -->
+        <aside class="w-full lg:w-64 flex-shrink-0">
+          <div class="glass p-6 rounded-2xl border border-gray-100 sticky top-28 space-y-6 shadow-sm">
+            
+            <div class="flex items-center justify-between border-b border-gray-150 pb-3">
+              <h2 class="font-bold text-lg text-primary flex items-center gap-1.5">
+                <span>⚙️</span> Filters
+              </h2>
+              <button onclick="resetFilters()" class="text-xs font-bold text-secondary hover:underline transition">Clear All</button>
+            </div>
+
+            <!-- Search input -->
+            <div class="space-y-2">
+              <label for="search-input" class="text-xs font-bold uppercase tracking-wider text-gray-400">Search Products</label>
+              <div class="relative">
+                <input type="text" id="search-input" placeholder="Type a spice, nut..." oninput="filterAndRenderProducts()"
+                  class="w-full pl-3 pr-8 py-2.5 rounded-xl text-sm border-none bg-white focus:outline-none focus:ring-1 focus:ring-primary shadow-inner">
+                <span class="absolute right-3 top-3 text-gray-400">🔍</span>
+              </div>
+            </div>
+
+            <!-- Category Filter -->
+            <div class="space-y-2.5">
+              <label class="text-xs font-bold uppercase tracking-wider text-gray-400">Category</label>
+              <div class="flex flex-col gap-2 font-medium text-sm text-gray-600">
+                <label class="flex items-center gap-2.5 cursor-pointer hover:text-primary">
+                  <input type="radio" name="category-filter" value="all" checked onchange="filterAndRenderProducts()"
+                    class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
+                  <span>All Categories</span>
+                </label>
+                <label class="flex items-center gap-2.5 cursor-pointer hover:text-primary">
+                  <input type="radio" name="category-filter" value="nuts" onchange="filterAndRenderProducts()"
+                    class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
+                  <span>Gourmet Nuts</span>
+                </label>
+                <label class="flex items-center gap-2.5 cursor-pointer hover:text-primary">
+                  <input type="radio" name="category-filter" value="fruits" onchange="filterAndRenderProducts()"
+                    class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
+                  <span>Dried Fruits</span>
+                </label>
+                <label class="flex items-center gap-2.5 cursor-pointer hover:text-primary">
+                  <input type="radio" name="category-filter" value="spices" onchange="filterAndRenderProducts()"
+                    class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
+                  <span>Ceylon Spices</span>
+                </label>
+                <label class="flex items-center gap-2.5 cursor-pointer hover:text-primary">
+                  <input type="radio" name="category-filter" value="veggies" onchange="filterAndRenderProducts()"
+                    class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
+                  <span>Dehydrated Veggies</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Price Filter -->
+            <div class="space-y-3.5">
+              <div class="flex justify-between items-center text-xs font-bold uppercase tracking-wider text-gray-400">
+                <span>Max Price</span>
+                <span id="price-display" class="text-sm font-extrabold text-primary">$15.00</span>
+              </div>
+              <input type="range" id="price-slider" min="4" max="20" step="0.5" value="16" oninput="updatePriceLabel(this.value)"
+                class="w-full h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary">
+              <div class="flex justify-between text-xxs font-bold text-gray-400">
+                <span>$4.00</span>
+                <span>$20.00</span>
+              </div>
+            </div>
+
+            <!-- Sorting options -->
+            <div class="space-y-2">
+              <label for="sort-select" class="text-xs font-bold uppercase tracking-wider text-gray-400">Sort By</label>
+              <select id="sort-select" onchange="filterAndRenderProducts()"
+                class="w-full px-3 py-2.5 rounded-xl text-sm border-none bg-white focus:outline-none focus:ring-1 focus:ring-primary shadow-sm font-medium text-gray-700">
+                <option value="recommended">Recommended</option>
+                <option value="low-high">Price: Low to High</option>
+                <option value="high-low">Price: High to Low</option>
+                <option value="rating">Top Rated</option>
+              </select>
+            </div>
+
+          </div>
+        </aside>
+
+        <!-- Product Listing Grid -->
+        <div class="flex-grow space-y-6">
+          
+          <!-- Results Top Bar -->
+          <div class="flex items-center justify-between glass py-3 px-6 rounded-2xl border border-gray-100 text-xs sm:text-sm font-bold text-gray-600 shadow-sm">
+            <div>
+              Showing <span id="results-count" class="text-primary font-extrabold">0</span> results matching your criteria
+            </div>
+            <div class="text-gray-400 hidden sm:block">
+              🚚 Free shipping on orders over $50
+            </div>
+          </div>
+
+          <!-- Cards Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="shop-grid">
+            <!-- Rendered dynamically -->
+          </div>
+
+          <!-- No items match panel -->
+          <div id="no-results-panel" class="hidden glass p-12 text-center rounded-2xl border border-gray-150 space-y-4">
+            <span class="text-5xl block">🏜️</span>
+            <h3 class="text-xl font-bold text-primary">No Products Found</h3>
+            <p class="text-sm text-gray-500 max-w-sm mx-auto">We couldn't find any dried foods matching your filters. Try resetting the filters or typing a different search query!</p>
+            <button onclick="resetFilters()" class="px-6 py-2.5 bg-primary text-white rounded-xl font-bold hover:bg-primary-light transition text-sm">
+              Reset Filters
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-primary-dark text-gray-300 border-t border-emerald-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+        
+        <!-- Brand Info -->
+        <div class="space-y-4">
+          <a href="index.html" class="flex items-center gap-2">
+            <span class="text-xl">🌱</span>
+            <span class="font-extrabold text-xl tracking-tight text-white">
+              Pantry<span class="text-secondary">Earth</span>
+            </span>
+          </a>
+          <p class="text-xs text-gray-400 leading-relaxed">
+            Bringing pristine, sun-dried organic foods to your kitchen pantry. Sourced sustainably with direct fair trade models.
+          </p>
+          <div class="flex items-center gap-3 pt-2 text-sm text-gray-400">
+            <span>📞 +94 11 234 5678</span>
+          </div>
+          <div class="text-xs text-gray-400 font-medium">
+            ✉️ hello@pantryearth.com
+          </div>
+        </div>
+
+        <!-- Shop links -->
+        <div class="space-y-4">
+          <h4 class="text-white font-bold text-sm uppercase tracking-wider">Quick Shop</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="shop.html?category=nuts" class="hover:text-white transition">Nuts & Seeds</a></li>
+            <li><a href="shop.html?category=fruits" class="hover:text-white transition">Dried Fruits</a></li>
+            <li><a href="shop.html?category=spices" class="hover:text-white transition">Ceylon Spices</a></li>
+            <li><a href="shop.html?category=veggies" class="hover:text-white transition">Mushroom & Veggies</a></li>
+          </ul>
+        </div>
+
+        <!-- Company Links -->
+        <div class="space-y-4">
+          <h4 class="text-white font-bold text-sm uppercase tracking-wider">Information</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="about.html" class="hover:text-white transition">Our Sourcing Story</a></li>
+            <li><a href="contact.html" class="hover:text-white transition">Get In Touch</a></li>
+            <li><a href="about.html#sustainability" class="hover:text-white transition">Eco-Sustainability</a></li>
+            <li><a href="contact.html#faqs" class="hover:text-white transition">FAQs & Answers</a></li>
+          </ul>
+        </div>
+
+        <!-- Certifications/Payment -->
+        <div class="space-y-4">
+          <h4 class="text-white font-bold text-sm uppercase tracking-wider">Certifications</h4>
+          <div class="grid grid-cols-2 gap-2">
+            <span class="bg-primary px-3 py-2 rounded text-center text-xs font-semibold text-gray-300 border border-emerald-900">USDA Organic</span>
+            <span class="bg-primary px-3 py-2 rounded text-center text-xs font-semibold text-gray-300 border border-emerald-900">Fair Trade</span>
+            <span class="bg-primary px-3 py-2 rounded text-center text-xs font-semibold text-gray-300 border border-emerald-900">Solar Dehydrated</span>
+            <span class="bg-primary px-3 py-2 rounded text-center text-xs font-semibold text-gray-300 border border-emerald-900">Eco-Packaged</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copyright Bar -->
+      <div class="mt-16 pt-8 border-t border-emerald-900 text-center text-xs text-gray-500 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p>&copy; 2026 PantryEarth.com. All rights reserved. Built with love using HTML, CSS, and Tailwind.</p>
+        <div class="flex gap-4">
+          <a href="#" class="hover:text-white">Privacy Policy</a>
+          <a href="#" class="hover:text-white">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script>
+    // Shop Logic & Filter management
+
+    // Initialize category filter from query params on load
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const categoryParam = getQueryParam('category');
+      if (categoryParam) {
+        const matchingRadio = document.querySelector(`input[name="category-filter"][value="${categoryParam}"]`);
+        if (matchingRadio) {
+          matchingRadio.checked = true;
+        }
+      }
+      
+      // Update max price UI slider on load
+      const slider = document.getElementById('price-slider');
+      updatePriceLabel(slider.value);
+    });
+
+    // Helper: update price label and trigger re-filter
+    function updatePriceLabel(val) {
+      const label = document.getElementById('price-display');
+      label.textContent = `$${parseFloat(val).toFixed(2)}`;
+      filterAndRenderProducts();
+    }
+
+    // Filter, sort and render products list
+    function filterAndRenderProducts() {
+      const searchVal = document.getElementById('search-input').value.toLowerCase().trim();
+      const selectedCategory = document.querySelector('input[name="category-filter"]:checked').value;
+      const maxPrice = parseFloat(document.getElementById('price-slider').value);
+      const sortBy = document.getElementById('sort-select').value;
+      
+      // Filter logic
+      let list = products.filter(p => {
+        // Category Filter
+        const matchCategory = (selectedCategory === 'all') || (p.category === selectedCategory);
+        
+        // Search Filter
+        const matchSearch = p.name.toLowerCase().includes(searchVal) || 
+                            p.shortDescription.toLowerCase().includes(searchVal) || 
+                            p.sourcing.toLowerCase().includes(searchVal);
+                            
+        // Price Filter
+        const matchPrice = p.price <= maxPrice;
+        
+        return matchCategory && matchSearch && matchPrice;
+      });
+
+      // Sorting Logic
+      if (sortBy === 'low-high') {
+        list.sort((a, b) => a.price - b.price);
+      } else if (sortBy === 'high-low') {
+        list.sort((a, b) => b.price - a.price);
+      } else if (sortBy === 'rating') {
+        list.sort((a, b) => b.rating - a.rating);
+      } // 'recommended' uses natural product database order
+
+      renderGrid(list);
+    }
+
+    // Update product grid in HTML
+    function renderGrid(list) {
+      const grid = document.getElementById('shop-grid');
+      const countLabel = document.getElementById('results-count');
+      const emptyPanel = document.getElementById('no-results-panel');
+
+      countLabel.textContent = list.length;
+
+      if (list.length === 0) {
+        grid.classList.add('hidden');
+        emptyPanel.classList.remove('hidden');
+        return;
+      }
+
+      grid.classList.remove('hidden');
+      emptyPanel.classList.add('hidden');
+
+      grid.innerHTML = list.map(product => {
+        let stars = '';
+        const fullStars = Math.floor(product.rating);
+        for (let i = 0; i < 5; i++) {
+          stars += (i < fullStars) ? '★' : '☆';
+        }
+
+        return `
+          <div class="product-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg border border-gray-100 flex flex-col h-full animate-fade-in">
+            <!-- Image container -->
+            <a href="product-detail.html?id=${product.id}" class="relative block overflow-hidden aspect-[4/3] bg-gray-50">
+              <img src="${product.image}" alt="${product.name}" class="product-zoom w-full h-full object-cover">
+              <span class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
+                ${product.category}
+              </span>
+              <span class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-gray-700 text-xs font-semibold px-2.5 py-1 rounded-full">
+                ${product.weight}
+              </span>
+            </a>
+
+            <!-- Details Container -->
+            <div class="p-5 flex-grow flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-1 text-amber-500 text-sm mb-1.5">
+                  <span class="font-semibold text-gray-600 text-xs mr-1">${product.rating}</span>
+                  <span>${stars}</span>
+                </div>
+                <a href="product-detail.html?id=${product.id}" class="block">
+                  <h3 class="font-bold text-base text-primary hover:text-secondary line-clamp-1 transition-colors leading-snug">
+                    ${product.name}
+                  </h3>
+                </a>
+                <p class="text-xs text-gray-500 mt-2 line-clamp-2 leading-relaxed">
+                  ${product.shortDescription}
+                </p>
+              </div>
+
+              <div class="mt-5 flex items-center justify-between pt-3.5 border-t border-gray-50">
+                <span class="text-lg font-black text-primary">$${product.price.toFixed(2)}</span>
+                <button onclick="addToCart(${product.id}, 1)" 
+                  class="bg-primary hover:bg-primary-light text-white text-xs font-bold px-3.5 py-2.5 rounded-xl transition flex items-center gap-1.5 transform hover:scale-[1.02]">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                  </svg>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Reset filters handler
+    function resetFilters() {
+      document.getElementById('search-input').value = '';
+      document.querySelector('input[name="category-filter"][value="all"]').checked = true;
+      
+      const slider = document.getElementById('price-slider');
+      slider.value = 16;
+      updatePriceLabel(16);
+      
+      document.getElementById('sort-select').value = 'recommended';
+      filterAndRenderProducts();
+    }
+  </script>
+</body>
+</html>

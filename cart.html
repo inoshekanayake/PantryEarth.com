@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PantryEarth.com | Shopping Cart & Secure Checkout</title>
+  <meta name="description" content="Review your organic dry foods shopping cart, adjust item quantities, and proceed to a secure plant-based eco checkout.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: '#1E3F20',
+              light: '#2d5a30',
+              dark: '#122613'
+            },
+            secondary: '#D97706',
+            cream: '#FAF9F6'
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-cream text-gray-800 flex flex-col min-h-screen">
+
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-40 glass w-full shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2 group">
+          <span class="text-2xl">🌱</span>
+          <span class="font-extrabold text-2xl tracking-tight text-primary group-hover:text-primary-light transition-colors">
+            Pantry<span class="text-secondary">Earth</span><span class="text-xs font-semibold align-super">.com</span>
+          </span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-8 font-medium text-primary">
+          <a href="index.html" class="hover:text-secondary border-b-2 border-transparent hover:border-secondary pb-1 transition-all">Home</a>
+          <a href="shop.html" class="hover:text-secondary border-b-2 border-transparent hover:border-secondary pb-1 transition-all">Shop</a>
+          <a href="about.html" class="hover:text-secondary border-b-2 border-transparent hover:border-secondary pb-1 transition-all">About Us</a>
+          <a href="contact.html" class="hover:text-secondary border-b-2 border-transparent hover:border-secondary pb-1 transition-all">Contact</a>
+        </nav>
+
+        <!-- Right Utilities -->
+        <div class="flex items-center gap-4">
+          <!-- Cart Icon -->
+          <a href="cart.html" class="relative p-2 text-primary hover:text-secondary transition" title="Shopping Cart" id="cart-icon-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+            <span class="cart-count absolute -top-1 -right-1 bg-secondary text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center hidden animate-bounce">
+              0
+            </span>
+          </a>
+
+          <!-- Mobile Menu Button -->
+          <button id="mobile-menu-btn" class="md:hidden p-2 text-primary focus:outline-none" aria-label="Toggle Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden glass border-t border-gray-200 animate-fade-in">
+      <div class="px-4 pt-2 pb-6 space-y-3 font-medium">
+        <a href="index.html" class="block py-2 text-primary border-b border-gray-100 hover:text-secondary">Home</a>
+        <a href="shop.html" class="block py-2 text-primary border-b border-gray-100 hover:text-secondary">Shop</a>
+        <a href="about.html" class="block py-2 text-primary border-b border-gray-100 hover:text-secondary">About Us</a>
+        <a href="contact.html" class="block py-2 text-primary hover:text-secondary">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow py-8 sm:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <h1 class="text-3xl font-extrabold text-primary mb-8">Shopping Cart</h1>
+
+      <!-- Main Cart Layout Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start" id="cart-content-layout">
+        
+        <!-- Cart Items List (Left Column) -->
+        <div class="lg:col-span-2 space-y-4" id="cart-items-container">
+          <!-- Rendered dynamically -->
+        </div>
+
+        <!-- Checkout & Order Summary (Right Column) -->
+        <div class="lg:col-span-1 space-y-6" id="checkout-summary-panel">
+          
+          <!-- Summary card -->
+          <div class="glass p-6 rounded-2xl border border-gray-100 shadow-sm space-y-4">
+            <h3 class="font-bold text-lg text-primary border-b border-gray-150 pb-3">Order Summary</h3>
+            
+            <div class="space-y-2 text-sm text-gray-600 font-medium">
+              <div class="flex justify-between">
+                <span>Subtotal</span>
+                <span id="summary-subtotal" class="text-primary font-bold">$0.00</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Eco Shipping</span>
+                <span id="summary-shipping" class="text-primary font-bold">$0.00</span>
+              </div>
+              <div class="text-xxs text-gray-400 mt-1 font-semibold">
+                * Free shipping for orders over $50.00
+              </div>
+              <div class="flex justify-between border-t border-gray-150 pt-3 text-base text-primary font-black">
+                <span>Estimated Total</span>
+                <span id="summary-total">$0.00</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Checkout details card -->
+          <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm space-y-4">
+            <h3 class="font-bold text-lg text-primary">Delivery Information</h3>
+            
+            <form id="checkout-form" class="space-y-3.5">
+              <div class="space-y-1">
+                <label for="c-name" class="text-xxs font-bold uppercase tracking-wider text-gray-400">Full Name</label>
+                <input type="text" id="c-name" required placeholder="John Doe"
+                  class="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-1 focus:ring-primary text-sm shadow-inner">
+              </div>
+
+              <div class="space-y-1">
+                <label for="c-email" class="text-xxs font-bold uppercase tracking-wider text-gray-400">Email Address</label>
+                <input type="email" id="c-email" required placeholder="name@domain.com"
+                  class="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-1 focus:ring-primary text-sm shadow-inner">
+              </div>
+
+              <div class="space-y-1">
+                <label for="c-address" class="text-xxs font-bold uppercase tracking-wider text-gray-400">Shipping Address</label>
+                <input type="text" id="c-address" required placeholder="12 Galle Rd, Colombo 3"
+                  class="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-1 focus:ring-primary text-sm shadow-inner">
+              </div>
+
+              <div class="grid grid-cols-2 gap-3">
+                <div class="space-y-1">
+                  <label for="c-city" class="text-xxs font-bold uppercase tracking-wider text-gray-400">City</label>
+                  <input type="text" id="c-city" required placeholder="Colombo"
+                    class="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-1 focus:ring-primary text-sm shadow-inner">
+                </div>
+                <div class="space-y-1">
+                  <label for="c-zip" class="text-xxs font-bold uppercase tracking-wider text-gray-400">ZIP / Postcode</label>
+                  <input type="text" id="c-zip" required placeholder="00300"
+                    class="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-1 focus:ring-primary text-sm shadow-inner">
+                </div>
+              </div>
+
+              <div class="space-y-1">
+                <label for="c-phone" class="text-xxs font-bold uppercase tracking-wider text-gray-400">Phone Number</label>
+                <input type="text" id="c-phone" required placeholder="+94 77 123 4567"
+                  class="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-1 focus:ring-primary text-sm shadow-inner">
+              </div>
+
+              <div class="p-3 bg-cream rounded-xl border border-gray-150 space-y-1.5 mt-2">
+                <span class="text-xxs font-bold uppercase tracking-wider text-gray-400">💳 Payment Method</span>
+                <p class="text-xs text-primary font-bold">Cash on Delivery (COD) / Bank Transfer</p>
+                <p class="text-xxs text-gray-500">To maintain carbon neutrality, we settle invoices directly upon ecological packaging dropoff.</p>
+              </div>
+
+              <button type="submit"
+                class="w-full py-4 bg-primary hover:bg-primary-light text-white font-bold rounded-xl transition shadow-md hover:shadow-lg mt-4 transform hover:-translate-y-0.5">
+                Place Order & Checkout
+              </button>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Empty Cart Panel (Hidden by default) -->
+      <div id="empty-cart-panel" class="hidden glass p-16 rounded-3xl text-center border border-gray-150 space-y-4 max-w-xl mx-auto">
+        <span class="text-6xl block">🛒</span>
+        <h2 class="text-2xl font-extrabold text-primary">Your Cart is Empty</h2>
+        <p class="text-sm text-gray-500 max-w-sm mx-auto">It looks like you haven't added any premium organic dry foods to your cart yet. Visit our store to find your favorite health picks!</p>
+        <a href="shop.html" class="inline-block px-8 py-3.5 bg-primary text-white font-bold rounded-xl hover:bg-primary-light transition-all shadow-md mt-2">
+          Start Shopping
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Checkout Success Modal Overlay (Hidden by default) -->
+  <div id="success-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm hidden animate-fade-in">
+    <div class="glass max-w-md w-full mx-4 p-8 rounded-3xl text-center shadow-2xl border border-white/60 space-y-5 transform scale-95 transition-transform duration-300">
+      <span class="text-5xl block animate-bounce">🎉</span>
+      <h2 class="text-2xl font-extrabold text-primary">Order Placed Successfully!</h2>
+      <p class="text-sm text-gray-600 leading-relaxed">
+        Thank you for purchasing from <span class="font-extrabold text-primary">PantryEarth.com</span>! <br>
+        We have received your order details, and an confirmation email has been dispatched to <span id="confirmed-email" class="font-bold text-secondary"></span>.
+      </p>
+      <div class="bg-cream p-4 rounded-2xl text-left border border-gray-150 space-y-1.5 text-xs text-gray-500">
+        <p><strong>Order ID:</strong> #PE-${Math.floor(100000 + Math.random() * 900000)}</p>
+        <p><strong>Deliver To:</strong> <span id="confirmed-name"></span></p>
+        <p><strong>Est. Delivery:</strong> 2 - 3 Business Days</p>
+      </div>
+      <button onclick="closeSuccessModal()"
+        class="w-full py-3.5 bg-primary hover:bg-primary-light text-white font-bold rounded-xl transition shadow-md">
+        Continue Shopping
+      </button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-primary-dark text-gray-300 border-t border-emerald-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+        
+        <!-- Brand Info -->
+        <div class="space-y-4">
+          <a href="index.html" class="flex items-center gap-2">
+            <span class="text-xl">🌱</span>
+            <span class="font-extrabold text-xl tracking-tight text-white">
+              Pantry<span class="text-secondary">Earth</span>
+            </span>
+          </a>
+          <p class="text-xs text-gray-400 leading-relaxed">
+            Bringing pristine, sun-dried organic foods to your kitchen pantry. Sourced sustainably with direct fair trade models.
+          </p>
+          <div class="flex items-center gap-3 pt-2 text-sm text-gray-400">
+            <span>📞 +94 11 234 5678</span>
+          </div>
+          <div class="text-xs text-gray-400">
+            ✉️ hello@pantryearth.com
+          </div>
+        </div>
+
+        <!-- Shop links -->
+        <div class="space-y-4">
+          <h4 class="text-white font-bold text-sm uppercase tracking-wider">Quick Shop</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="shop.html?category=nuts" class="hover:text-white transition">Nuts & Seeds</a></li>
+            <li><a href="shop.html?category=fruits" class="hover:text-white transition">Dried Fruits</a></li>
+            <li><a href="shop.html?category=spices" class="hover:text-white transition">Ceylon Spices</a></li>
+            <li><a href="shop.html?category=veggies" class="hover:text-white transition">Mushroom & Veggies</a></li>
+          </ul>
+        </div>
+
+        <!-- Company Links -->
+        <div class="space-y-4">
+          <h4 class="text-white font-bold text-sm uppercase tracking-wider">Information</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="about.html" class="hover:text-white transition">Our Sourcing Story</a></li>
+            <li><a href="contact.html" class="hover:text-white transition">Get In Touch</a></li>
+            <li><a href="about.html#sustainability" class="hover:text-white transition">Eco-Sustainability</a></li>
+            <li><a href="contact.html#faqs" class="hover:text-white transition">FAQs & Answers</a></li>
+          </ul>
+        </div>
+
+        <!-- Certifications/Payment -->
+        <div class="space-y-4">
+          <h4 class="text-white font-bold text-sm uppercase tracking-wider">Certifications</h4>
+          <div class="grid grid-cols-2 gap-2">
+            <span class="bg-primary px-3 py-2 rounded text-center text-xs font-semibold text-gray-300 border border-emerald-900">USDA Organic</span>
+            <span class="bg-primary px-3 py-2 rounded text-center text-xs font-semibold text-gray-300 border border-emerald-900">Fair Trade</span>
+            <span class="bg-primary px-3 py-2 rounded text-center text-xs font-semibold text-gray-300 border border-emerald-900">Solar Dehydrated</span>
+            <span class="bg-primary px-3 py-2 rounded text-center text-xs font-semibold text-gray-300 border border-emerald-900">Eco-Packaged</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copyright Bar -->
+      <div class="mt-16 pt-8 border-t border-emerald-900 text-center text-xs text-gray-500 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p>&copy; 2026 PantryEarth.com. All rights reserved. Built with love using HTML, CSS, and Tailwind.</p>
+        <div class="flex gap-4">
+          <a href="#" class="hover:text-white">Privacy Policy</a>
+          <a href="#" class="hover:text-white">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script>
+    // Cart page rendering & Checkout forms simulation
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCartPage();
+
+      // Hook checkout form submission
+      const checkForm = document.getElementById('checkout-form');
+      if (checkForm) {
+        checkForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          
+          const name = document.getElementById('c-name').value;
+          const email = document.getElementById('c-email').value;
+
+          if (name && email) {
+            // Show modal
+            document.getElementById('confirmed-name').textContent = name;
+            document.getElementById('confirmed-email').textContent = email;
+            
+            const modal = document.getElementById('success-modal');
+            modal.classList.remove('hidden');
+            modal.querySelector('div').classList.add('scale-100');
+            modal.querySelector('div').classList.remove('scale-95');
+          }
+        });
+      }
+    });
+
+    // Main render function
+    function renderCartPage() {
+      const cart = getCart();
+      const itemsContainer = document.getElementById('cart-items-container');
+      const layout = document.getElementById('cart-content-layout');
+      const emptyPanel = document.getElementById('empty-cart-panel');
+
+      if (cart.length === 0) {
+        layout.classList.add('hidden');
+        emptyPanel.classList.remove('hidden');
+        return;
+      }
+
+      layout.classList.remove('hidden');
+      emptyPanel.classList.add('hidden');
+
+      itemsContainer.innerHTML = cart.map(item => `
+        <div class="glass p-5 rounded-2xl border border-gray-100 shadow-sm flex flex-col sm:flex-row items-center gap-5 justify-between animate-fade-in">
+          
+          <!-- Product Info Column -->
+          <div class="flex items-center gap-4 flex-grow w-full sm:w-auto">
+            <img src="${item.image}" alt="${item.name}" class="w-20 h-20 object-cover rounded-xl border border-gray-150 flex-shrink-0 bg-gray-50 aspect-square">
+            <div class="space-y-1">
+              <h3 class="font-bold text-primary text-sm sm:text-base leading-snug line-clamp-1">${item.name}</h3>
+              <p class="text-xs text-gray-500 font-medium">Weight Pack: ${item.weight}</p>
+              <p class="text-xs font-extrabold text-secondary">$${item.price.toFixed(2)} each</p>
+            </div>
+          </div>
+
+          <!-- Quantity adjustments column -->
+          <div class="flex items-center justify-between w-full sm:w-auto gap-6 border-t sm:border-t-0 pt-4 sm:pt-0">
+            <!-- Increment dec -->
+            <div class="flex items-center justify-between border border-gray-250 bg-white rounded-lg py-1 px-3 w-28 shadow-inner">
+              <button onclick="changeCartItemQty(${item.id}, ${item.quantity - 1})" class="text-gray-500 hover:text-primary font-bold focus:outline-none">-</button>
+              <span class="font-extrabold text-primary text-sm">${item.quantity}</span>
+              <button onclick="changeCartItemQty(${item.id}, ${item.quantity + 1})" class="text-gray-500 hover:text-primary font-bold focus:outline-none">+</button>
+            </div>
+
+            <!-- Single Item total price -->
+            <span class="text-lg font-black text-primary w-20 text-right">$${(item.price * item.quantity).toFixed(2)}</span>
+
+            <!-- Delete action button -->
+            <button onclick="removeCartItem(${item.id})" class="text-red-500 hover:text-red-700 font-semibold text-sm transition" title="Delete Product">
+              🗑️
+            </button>
+          </div>
+
+        </div>
+      `).join('');
+
+      // Update Summary pricing
+      updateSummaryPrice();
+    }
+
+    // Helper: update price displays on page
+    function updateSummaryPrice() {
+      const subtotal = parseFloat(getCartTotal());
+      
+      // Compute Shipping: free for > $50, else $4.99
+      let shipping = 4.99;
+      if (subtotal >= 50.00) {
+        shipping = 0.00;
+      }
+
+      const total = subtotal + shipping;
+
+      document.getElementById('summary-subtotal').textContent = `$${subtotal.toFixed(2)}`;
+      document.getElementById('summary-shipping').textContent = (shipping === 0) ? 'FREE' : `$${shipping.toFixed(2)}`;
+      document.getElementById('summary-total').textContent = `$${total.toFixed(2)}`;
+    }
+
+    // Wrap event for cart incrementing in list
+    function changeCartItemQty(id, newQty) {
+      updateQuantity(id, newQty);
+      renderCartPage();
+    }
+
+    // Wrap event for product removal in list
+    function removeCartItem(id) {
+      removeFromCart(id);
+      renderCartPage();
+    }
+
+    // Close Modal checkout handler
+    function closeSuccessModal() {
+      // Clear cart
+      clearCart();
+      
+      const modal = document.getElementById('success-modal');
+      modal.classList.add('hidden');
+      
+      // Redirect to index
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>
